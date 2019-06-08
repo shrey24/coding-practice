@@ -36,7 +36,7 @@ class HeapSort{
             }
         }
     }
-    // O(nlogn)
+    // O(nlogn) ==> tight upper bound O(n)
     public static void buildMaxHeap(int[] arr, int len){
         int firstNonLeafNodeIndex = getParentIndex(arr[len-1]);
         for(int i=firstNonLeafNodeIndex; i>=0; i--){
