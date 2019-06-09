@@ -2,6 +2,8 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 /*
+    Ref: https://www.ics.uci.edu/~eppstein/161/960125.html
+         https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-2-expected-linear-time/
     find K’th Smallest/Largest Element in Unsorted Array 
     Input: arr[] = {7, 10, 4, 3, 20, 15}
            k = 3
