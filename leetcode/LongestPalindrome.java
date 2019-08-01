@@ -10,8 +10,8 @@ class LongestPalindrome{
         }
         int i=0, j=0;
         for(int k=0; k<s.length(); k++){
-            int[] odd = expand(s, k, k);
-            int[] even = expand(s, k, k+1);
+            int[] odd = expand(s, k, k); 
+            int[] even = expand(s, k, k+1); 
             int[] max = (odd[1] - odd[0])>(even[1]-even[0]) ? odd : even;
             int len = max[1] - max[0];
             if(j-i < len){
