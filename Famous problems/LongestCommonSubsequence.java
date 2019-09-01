@@ -1,5 +1,5 @@
 class LongestCommonSubsequence{
-
+    // article lick: https://www.ics.uci.edu/~eppstein/161/960229.html
 
     /**
      * Find the length of Longest Common Subsequence (Dynamic Programming)
@@ -28,6 +28,8 @@ class LongestCommonSubsequence{
      * @return: length of LCS
      */
     public static int getLengthOfLCS(String s1, String s2, int m, int n){
+        // Dynamic Programming Tabulation
+        // strings scanned from left to right
         int L[][] = new int[m+1][n+1];
         // L[i][j] coutains LCS checked for s1[0..i-1] & s2[0..j-1]
         // where i <= [0, m] and j <= [0, n]
@@ -52,16 +54,33 @@ class LongestCommonSubsequence{
     }
 
 
-    public static String getLCS(String s1, String s2, int m, int n){
-        
+    public static int getLCS(String s1, String s2, int m, int n){
+        // Dynamic Programming Tabulation
+        // strings scanned from right to left
 
+        int T[][] = new int[m+1][n+1];  // i == m is the end of string ('\0')
 
+        for(int i=m; i>=0; i--){
+            for(int j=n; j>=0; j--){
+                if(i == m || j == n){
+                    T[i][j] = 0;
+                }
+                else if(s1.charAt(i) == s2.charAt(j)){
+                    T[i][j] = 1 + T[i+1][j+1];
+                }
+                else{
+                    T[i][j] = Math.max(T[i+1][j], T[i][j+1]);
+                }
+            }
+        }
 
+        return T[0][0];
     }
 
 
     public static void main(String[] args) {
         String s1 = "AGGTAB", s2 = "GXTXAYB";
-        System.out.println(getLengthOfLCS(s1, s2, s1.length(), s2.length()) );
+        //System.out.println(getLengthOfLCS(s1, s2, s1.length(), s2.length()) );
+        System.out.println(getLCS(s1, s2, s1.length(), s2.length()) );
     }
 }
