@@ -9,12 +9,28 @@ class ListNode {
 class LinkedListsProblems {
 
 
+    public static boolean hasCycle(ListNode head) {
+        if (head == null) return false;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        
+        while(fast != null && fast.next != null && slow != null){
+            if(slow == fast){
+                return true;
+            }
+            slow = slow.next;
+            fast = fast.next.next;            
+        }
+        
+        return false;        
+    }
+
 
     // input: current node to be deleted
     public static void deleteCurrentNode(ListNode node){
         // Note: doesnt work for last element..
-        node.val = node.next.val; // copy value of next node
-        node.next = node.next.next;
+        node.val = node.next.val; // copy value of next node to this node
+        node.next = node.next.next; // delete the next node
     }
 
     // Iterative
