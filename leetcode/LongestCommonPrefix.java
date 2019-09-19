@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 class LongestCommonPrefix {
     public static String longestCommonPrefix(String[] strs) {
         int i=0;
@@ -34,6 +38,19 @@ class LongestCommonPrefix {
 
         char ch = 'a';
         System.out.println((int)ch);
+        Set<Character> set = new HashSet<>();
+        set.add('e');
+        set.add('f');
+        System.out.println(set);
+        set.removeAll(set);
+        HashMap<Integer, Integer> h = new HashMap<>();
+        h.put(1, 1);
+        h.put(2, 2);
+
+        h.remove(1);
+        
+        System.out.println(h);
+
         
     }
 

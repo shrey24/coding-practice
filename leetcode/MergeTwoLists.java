@@ -7,6 +7,7 @@ class ListNode {
 }
  
 class MergeTwoLists{
+    public int call_counter = 0;
 
     public ListNode mergeNLists(ListNode[] lists){
         while(lists.length > 1 ){
@@ -50,6 +51,7 @@ class MergeTwoLists{
 
     // recursive
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        this.call_counter++;
         //base case
         if(l1 == null && l2 == null){
             return null;
@@ -103,17 +105,16 @@ class MergeTwoLists{
         int [] a3 = {5, 8, 9};
         ListNode l1 = o.makeList(a1);
         ListNode l2 = o.makeList(a2);
-        // o.printList(l1);
-        // o.printList(l2);
-        // o.printList(o.merge2Lists(l1, l2));
+        o.printList(l1);
+        o.printList(l2);
+        // o.printList(o.mergeTwoLists(l1, l2));
+        
         ListNode l3 = o.makeList(a3);
 
         ListNode[] lists = {l1, l2, l3} ;
 
         ListNode ans = o.mergeNLists(lists);
         o.printList(ans);
-        
-    }
 
-    
+    }    
 }

@@ -32,11 +32,14 @@ class ReverseLinkedList {
             return head;
         }
         ListNode curr = head; 
-        ListNode next_of_curr = curr.next;
-        head = next_of_curr;
-        ListNode r_head = reverseList(head); // r_head is the head ptr of reversed link
-        next_of_curr.next = curr; // reversing link
-        curr.next = null;   //last node of reversed link points to null
+        // ListNode next_of_curr = curr.next;
+        // head = next_of_curr;
+        head = curr.next;
+        ListNode r_head = reverseListRec(head); // r_head is the head ptr of reversed link
+        head.next = curr;
+        curr.next = null;
+        // next_of_curr.next = curr; // reversing link
+        // curr.next = null;   //last node of reversed link points to null
          
         return r_head;
     }
@@ -68,9 +71,9 @@ class ReverseLinkedList {
     public static void main(String[] args) {
         ListNode l5 = createList(5);
         printList(l5);
-        ListNode rev = reverseList(l5);
+
+        ListNode rev = reverseListRec(l5);
         
-        printList(rev);
         printList(rev);
     }
 }
