@@ -45,6 +45,26 @@ class HashMapUse{
     public static void main(String[] args) {
         System.out.println("run");
 
+        /**    Linked Hash Map (Ordered HM implemented with linked list) */
+        int cap = 3;
+        Float defaultLoadFactor = 0.75F;
+        boolean accessOrder = true;
+        LinkedHashMap<Integer, Integer> LRU = 
+        new LinkedHashMap<Integer, Integer>(cap, defaultLoadFactor, accessOrder){
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+                return size() > cap; 
+            }
+        };
+
+        LRU.put(1, 1);
+        LRU.put(2, 2);
+        LRU.put(3, 3);
+        LRU.put(4, 4);
+        System.out.println(LRU.get(2));    
+        System.out.println(LRU);
+        System.out.println(LRU.get(1));
+
     }
 
 }
