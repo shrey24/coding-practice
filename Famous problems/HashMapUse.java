@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Map.Entry;
 
 class HashMapUse{
 
@@ -61,9 +62,26 @@ class HashMapUse{
         LRU.put(2, 2);
         LRU.put(3, 3);
         LRU.put(4, 4);
-        System.out.println(LRU.get(2));    
-        System.out.println(LRU);
-        System.out.println(LRU.get(1));
+        // System.out.println(LRU.get(2));    
+        // System.out.println(LRU);
+        // System.out.println(LRU.get(1));
+
+        LinkedHashMap<Integer, Integer> lhm = new LinkedHashMap<>(cap, defaultLoadFactor, accessOrder);
+
+        lhm.put(1, 1);
+        lhm.put(2, 2);
+        lhm.put(3, 3);
+        lhm.put(4, 4);
+
+        lhm.remove(lhm.keySet().toArray()[0]); // simply remove last
+        
+        Iterator itr = lhm.keySet().iterator(); // remove using iterators
+        itr.next();
+        itr.remove();
+        
+        for (Entry<Integer, Integer> entry : lhm.entrySet()) {
+            System.out.println(entry.getKey()+" - "+entry.getValue());
+        }
 
     }
 

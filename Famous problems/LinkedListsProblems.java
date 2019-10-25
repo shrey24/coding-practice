@@ -1,3 +1,4 @@
+import java.util.List;
 
 // Definition for singly-linked list.
 class ListNode {
@@ -91,6 +92,26 @@ class LinkedListsProblems {
         System.out.println();
     }
 
+    public ListNode removeElements(ListNode head, int val) {
+        //check head elements
+        while(head != null && head.val == val){
+            head = head.next;
+        }
+        
+        ListNode curr = head;
+        
+        while(curr != null && curr.next != null){
+            if(curr.next.val == val){
+                curr.next = curr.next.next;
+            }
+            else{
+                curr = curr.next;
+            }
+        }
+        
+        return head;
+    }
+
     public static void main(String[] args) {
         /*
         ListNode l5 = createList(5);
@@ -104,5 +125,10 @@ class LinkedListsProblems {
         int i = 0;
         arr[++i] = 1;
         System.out.println(arr[0]+" "+arr[1]);
+        List<String> l = new List<String>() {
+        };
+    
+        String s = "ACQ 12";
+        System.out.println(s.split(" ");
     }
 }

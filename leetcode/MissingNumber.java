@@ -33,5 +33,13 @@ class MissingNumber {
         char r = 0;
         char a = 'a';
         System.out.println(r^a);
+        String s = "aaa";
+        String[] ss = s.split("\\+");
+        System.out.println(ss[0]);
+        StringBuilder sb = new StringBuilder();
+        sb = sb +"a";
+        sb = sb +"b";
+        System.out.println(sb);
+        
     }
 }

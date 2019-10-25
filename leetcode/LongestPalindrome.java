@@ -1,6 +1,37 @@
 class LongestPalindrome{
 
 
+    // Manacher's Algorithm  O(n)
+    public String longestPalindromeManacher(String s) {
+        char[] A = new char[2 * S.length() + 3];
+        A[0] = '@';
+        A[1] = '#';
+        A[A.length - 1] = '$';
+        int t = 2;
+        for (char c: S.toCharArray()) {
+            A[t++] = c;
+            A[t++] = '#';
+        }
+
+        int[] palinLength = new int[A.length];
+        int center = 0, right = 0;
+        for (int i = 1; i < Z.length - 1; ++i) {
+            if (i < right){
+                int mirror = 2 * center - i;
+                palinLength[i] = Math.min(right - i, palinLength[mirror]);
+            }
+            while (A[i + palinLength[i] + 1] == A[i - palinLength[i] - 1])
+                palinLength[i]++;
+            
+            if (i + palinLength[i] > right) {
+                center = i;
+                right = i + palinLength[i];
+            }
+        }
+        int ans = 0;
+        for (int v: palinLength) ans = Math.max(v, ans);
+        return ans;
+    }
 
     // expand from center 
     // O(n^2) Time : O(1) Space

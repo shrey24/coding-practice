@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LRUCache",
+            "request": "launch",
+            "mainClass": "LRUCache",
+            "projectName": "Practice_79466492"
+        }
+    ]
+}
